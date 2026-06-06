@@ -2,7 +2,7 @@
 using Unity.Netcode;
 using UnityEngine;
 
-namespace _Project.MainCharacter.Script
+namespace _Project.MainCharacter.Scripts
 {
     public class PlayerNameTag : NetworkBehaviour
     {

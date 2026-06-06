@@ -1,7 +1,8 @@
-﻿using Unity.Netcode;
+﻿using _Project.Shooting;
+using Unity.Netcode;
 using UnityEngine;
 
-namespace _Project.MainCharacter.Script
+namespace _Project.MainCharacter.Scripts
 {
     public class PlayerShooting : NetworkBehaviour
     {

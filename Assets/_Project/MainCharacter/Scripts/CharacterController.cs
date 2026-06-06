@@ -1,7 +1,7 @@
 ﻿using Unity.Netcode;
 using UnityEngine;
 
-namespace _Project.MainCharacter.Script
+namespace _Project.MainCharacter.Scripts
 {
     public class CharacterController : NetworkBehaviour
     {
@@ -11,8 +11,6 @@ namespace _Project.MainCharacter.Script
         
         [Header("Visual")]
         [SerializeField] private SpriteRenderer bodyRenderer;
-        [SerializeField] private Color localColor = Color.blue;
-        [SerializeField] private Color remoteColor = Color.red;
         
         [Header("Animation")]
         [SerializeField] private Animator animator;
@@ -101,9 +99,6 @@ namespace _Project.MainCharacter.Script
             
             if (IsOwner)
             {
-                if (bodyRenderer != null)
-                    bodyRenderer.color = localColor;
-                    
                 // Настройка камеры
                 if (mainCamera != null)
                 {
@@ -113,11 +108,6 @@ namespace _Project.MainCharacter.Script
                         mainCamera.transform.position.z
                     );
                 }
-            }
-            else
-            {
-                if (bodyRenderer != null)
-                    bodyRenderer.color = remoteColor;
             }
         }
     }

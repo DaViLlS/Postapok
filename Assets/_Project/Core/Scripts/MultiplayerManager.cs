@@ -1,6 +1,5 @@
 using System;
 using System.Threading.Tasks;
-using _Project.MainCharacter.Script;
 using Unity.Services.Core;
 using Unity.Services.Authentication;
 using Unity.Services.Relay;

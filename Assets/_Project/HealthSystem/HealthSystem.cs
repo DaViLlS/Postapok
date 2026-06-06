@@ -3,7 +3,7 @@ using _Project.Game.Scripts;
 using Unity.Netcode;
 using UnityEngine;
 
-namespace _Project.MainCharacter.Script
+namespace _Project.HealthSystem
 {
     public class HealthSystem : NetworkBehaviour
     {

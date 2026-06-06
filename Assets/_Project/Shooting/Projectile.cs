@@ -1,7 +1,7 @@
 ﻿using Unity.Netcode;
 using UnityEngine;
 
-namespace _Project.MainCharacter.Script
+namespace _Project.Shooting
 {
     public class Projectile : NetworkBehaviour
     {
@@ -53,7 +53,7 @@ namespace _Project.MainCharacter.Script
                 return;
             
             // Наносим урон
-            HealthSystem health = other.GetComponent<HealthSystem>();
+            HealthSystem.HealthSystem health = other.GetComponent<HealthSystem.HealthSystem>();
             if (health != null)
             {
                 health.TakeDamageServerRpc(damage);

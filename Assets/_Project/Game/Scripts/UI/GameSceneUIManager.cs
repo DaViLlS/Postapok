@@ -1,10 +1,10 @@
-﻿using _Project.Game.Scripts;
+﻿using _Project.Core.Scripts;
 using TMPro;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace _Project.Core.Scripts
+namespace _Project.Game.Scripts.UI
 {
     public class GameSceneUIManager : MonoBehaviour
     {

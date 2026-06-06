@@ -3,9 +3,9 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace _Project.MainCharacter.Script
+namespace _Project.Game.Scripts.UI
 {
-    public class MainMenuUI : MonoBehaviour
+    public class MainMenuUIManager : MonoBehaviour
     {
         [Header("Panels")]
         [SerializeField] private GameObject mainMenuPanel;
@@ -29,71 +29,63 @@ namespace _Project.MainCharacter.Script
         
         private void Start()
         {
+            // Находим MultiplayerManager (он должен быть в DontDestroyOnLoad)
             multiplayerManager = FindObjectOfType<MultiplayerManager>();
             
             if (multiplayerManager == null)
             {
-                Debug.LogError("MultiplayerManager not found in scene!");
+                Debug.LogError("MultiplayerManager not found!");
                 return;
             }
             
-            // Привязка кнопок
+            // Подписываемся на события
+            multiplayerManager.OnStatusChanged += UpdateStatus;
+            multiplayerManager.OnLobbyCreated += ShowLobby;
+            multiplayerManager.OnPlayersCountChanged += UpdatePlayersCount;
+            multiplayerManager.OnDisconnected += ShowMainMenu;
+            
+            // Кнопки
             hostButton.onClick.AddListener(() => multiplayerManager.StartHost());
-            joinButton.onClick.AddListener(() => multiplayerManager.JoinGame(joinCodeInput.text));
+            joinButton.onClick.AddListener(() => multiplayerManager.JoinGame(joinCodeInput.text.Trim()));
             quitButton.onClick.AddListener(QuitGame);
             
             copyCodeButton.onClick.AddListener(CopyCodeToClipboard);
-            startGameButton.onClick.AddListener(() => multiplayerManager.StartGame()); // Теперь public
+            startGameButton.onClick.AddListener(() => multiplayerManager.StartGame());
             leaveButton.onClick.AddListener(() => multiplayerManager.LeaveSession());
             
             ShowMainMenu();
-        }
-        
-        private void Update()
-        {
-            // Обновляем количество игроков каждый кадр
-            if (lobbyPanel.activeSelf && multiplayerManager != null)
-            {
-                UpdatePlayersCount();
-            }
         }
         
         public void ShowMainMenu()
         {
             mainMenuPanel.SetActive(true);
             lobbyPanel.SetActive(false);
+            SetButtonsInteractable(true);
         }
         
-        public void ShowLobby(string joinCode)
+        private void ShowLobby(string joinCode)
         {
             mainMenuPanel.SetActive(false);
             lobbyPanel.SetActive(true);
             lobbyCodeText.text = $"Code: {joinCode}";
-            startGameButton.gameObject.SetActive(false); // Изначально скрыта, пока хост не подключится
+            
+            // Кнопка Start только для хоста
+            startGameButton.gameObject.SetActive(multiplayerManager.IsHost());
         }
         
-        public void ShowStartButton()
-        {
-            // Показываем кнопку Start только хосту
-            startGameButton.gameObject.SetActive(true);
-        }
-        
-        public void UpdateStatus(string message)
+        private void UpdateStatus(string message)
         {
             if (statusText != null)
                 statusText.text = message;
         }
         
-        public void UpdatePlayersCount()
+        private void UpdatePlayersCount(int count)
         {
-            if (lobbyPlayersText != null && Unity.Netcode.NetworkManager.Singleton != null)
-            {
-                int count = Unity.Netcode.NetworkManager.Singleton.ConnectedClients.Count;
+            if (lobbyPlayersText != null)
                 lobbyPlayersText.text = $"Players: {count}";
-            }
         }
         
-        public void SetButtonsInteractable(bool interactable)
+        private void SetButtonsInteractable(bool interactable)
         {
             hostButton.interactable = interactable;
             joinButton.interactable = interactable;
@@ -125,19 +117,13 @@ namespace _Project.MainCharacter.Script
         
         private void OnDestroy()
         {
-            // Отписываемся от событий
-            if (hostButton != null)
-                hostButton.onClick.RemoveAllListeners();
-            if (joinButton != null)
-                joinButton.onClick.RemoveAllListeners();
-            if (quitButton != null)
-                quitButton.onClick.RemoveAllListeners();
-            if (copyCodeButton != null)
-                copyCodeButton.onClick.RemoveAllListeners();
-            if (startGameButton != null)
-                startGameButton.onClick.RemoveAllListeners();
-            if (leaveButton != null)
-                leaveButton.onClick.RemoveAllListeners();
+            if (multiplayerManager != null)
+            {
+                multiplayerManager.OnStatusChanged -= UpdateStatus;
+                multiplayerManager.OnLobbyCreated -= ShowLobby;
+                multiplayerManager.OnPlayersCountChanged -= UpdatePlayersCount;
+                multiplayerManager.OnDisconnected -= ShowMainMenu;
+            }
         }
     }
 }
