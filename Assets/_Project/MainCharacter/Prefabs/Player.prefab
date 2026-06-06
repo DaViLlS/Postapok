@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4906123815161444894}
   - component: {fileID: 5335116778533944763}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,7 +102,7 @@ GameObject:
   - component: {fileID: 1506068588039936383}
   - component: {fileID: 5070809957786993614}
   - component: {fileID: 8116670789406224158}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -203,7 +203,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9166304507815577852}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Handle Slide Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -239,7 +239,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3868520728415743727}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -277,7 +277,7 @@ GameObject:
   - component: {fileID: 3341410985486389821}
   - component: {fileID: 7528209534558680446}
   - component: {fileID: 2918713579428361566}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: NameText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -421,7 +421,7 @@ GameObject:
   - component: {fileID: 3617784599099479684}
   - component: {fileID: 5993822618208219610}
   - component: {fileID: 8154825583236597962}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -458,7 +458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkObject
-  GlobalObjectIdHash: 1404425552
+  GlobalObjectIdHash: 2061959965
   InScenePlacedSourceGlobalObjectIdHash: 0
   DeferredDespawnTick: 0
   Ownership: 1
@@ -487,8 +487,6 @@ MonoBehaviour:
   moveSpeed: 5
   rotationSpeed: 360
   bodyRenderer: {fileID: 2008883424142278259}
-  localColor: {r: 0, g: 0, b: 1, a: 1}
-  remoteColor: {r: 1, g: 0, b: 0, a: 1}
   animator: {fileID: 8154825583236597962}
   moveAnimParam: IsMoving
 --- !u!114 &3107213686092558586
@@ -631,7 +629,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &5993822618208219610
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -688,7 +686,7 @@ Animator:
   m_GameObject: {fileID: 3272908776165190593}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 25a6ac5069a8d604286c58c9116029bc, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -709,7 +707,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9111259946625745616}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -742,7 +740,7 @@ GameObject:
   - component: {fileID: 6541370959219015771}
   - component: {fileID: 1166777091784333130}
   - component: {fileID: 2417913779210745655}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -817,7 +815,7 @@ GameObject:
   - component: {fileID: 1219474626380199039}
   - component: {fileID: 3432075515419861760}
   - component: {fileID: 2447716477755448550}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -890,7 +888,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4216941542017187048}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: MuzzeFlash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -923,7 +921,7 @@ GameObject:
   - component: {fileID: 1684973813262863795}
   - component: {fileID: 1663014354741173828}
   - component: {fileID: 1732631726384053767}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
