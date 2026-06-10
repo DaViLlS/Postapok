@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dae15bc6eb52472481c3cd0767eb6ce3, type: 3}
+  m_Name: ArcherGuard
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Levels.Scripts.EnemyLevels.EnemyLevelsData
+  enemyType: 5
+  archetype: 2
+  firstMissionLevel: 0
+  baseHP: 15
+  baseDamage: 5
+  baseAttackCooldown: 0.9
+  baseSpeed: 4
+  baseAttackRange: 7
+  baseRetreatRange: 2
+  baseExpReward: 2
+  chanceToSpawnSoul: 80
+  hpK: 0.55
+  hpB: 20
+  damageK: 0.6
+  damageB: 18
+  cooldownK: -0.1
+  cooldownB: 30
+  expK: 1
+  expB: 25
+  abilityName: 
+  abilityDescription: 

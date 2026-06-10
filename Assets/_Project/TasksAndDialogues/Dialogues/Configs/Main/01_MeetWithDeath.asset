@@ -1,0 +1,639 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a75bd0c3ec69425b8fb2e913f8568433, type: 3}
+  m_Name: 01_MeetWithDeath
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Dialogues.Scripts.DialogueConfig
+  dialogues:
+  - speakerName: "\u041E\u0443\u044D\u043D"
+    speakerNames:
+    - text: "\u041E\u0443\u044D\u043D"
+      language: 1
+    - text: Owen
+      language: 2
+    speakerIcon: {fileID: 21300000, guid: 40d398d77bfdd954e8a3e61030daaaaa, type: 3}
+    dialogueText: "\u0427\u0442\u043E? \u0413\u0434\u0435 \u044F?"
+    dialogueTexts:
+    - text: "\u0427\u0442\u043E? \u0413\u0434\u0435 \u044F?"
+      language: 1
+    - text: What? Where am i?
+      language: 2
+    delay: 0.04
+    isLeft: 1
+  - speakerName: ???
+    speakerNames:
+    - text: ???
+      language: 1
+    - text: ???
+      language: 2
+    speakerIcon: {fileID: 21300000, guid: 1c6622693046ea845bc080110caecb67, type: 3}
+    dialogueText: "\u0422\u044B \u0443\u043C\u0435\u0440. \u0418 \u0443\u0436\u0435
+      \u043E\u0447\u0435\u043D\u044C \u0434\u0430\u0432\u043D\u043E."
+    dialogueTexts:
+    - text: "\u0422\u044B \u0443\u043C\u0435\u0440. \u0418 \u0443\u0436\u0435 \u043E\u0447\u0435\u043D\u044C
+        \u0434\u0430\u0432\u043D\u043E."
+      language: 1
+    - text: You died. And a very long time ago.
+      language: 2
+    delay: 0.04
+    isLeft: 0
+  - speakerName: "\u041E\u0443\u044D\u043D"
+    speakerNames:
+    - text: "\u041E\u0443\u044D\u043D"
+      language: 1
+    - text: Owen
+      language: 2
+    speakerIcon: {fileID: 21300000, guid: 9ef250b6e9917594489e9797a751b497, type: 3}
+    dialogueText: "\u0410 \u0442\u044B... \u0421\u043C\u0435\u0440\u0442\u044C?"
+    dialogueTexts:
+    - text: "\u0410 \u0442\u044B... \u0421\u043C\u0435\u0440\u0442\u044C?"
+      language: 1
+    - text: And you... are Death?
+      language: 2
+    delay: 0.04
+    isLeft: 1
+  - speakerName: ???
+    speakerNames:
+    - text: ???
+      language: 1
+    - text: ???
+      language: 2
+    speakerIcon: {fileID: 21300000, guid: 1c6622693046ea845bc080110caecb67, type: 3}
+    dialogueText: "\u0412\u0441\u0451 \u0432\u0435\u0440\u043D\u043E."
+    dialogueTexts:
+    - text: "\u0412\u0441\u0451 \u0432\u0435\u0440\u043D\u043E."
+      language: 1
+    - text: That's right.
+      language: 2
+    delay: 0.04
+    isLeft: 0
+  - speakerName: "\u041E\u0443\u044D\u043D"
+    speakerNames:
+    - text: "\u041E\u0443\u044D\u043D"
+      language: 1
+    - text: Owen
+      language: 2
+    speakerIcon: {fileID: 21300000, guid: 093c72f14a6bd4244a9ecd4397219476, type: 3}
+    dialogueText: "\u042F \u0442\u0435\u0431\u044F \u0442\u0430\u043A \u0438 \u043F\u0440\u0435\u0434\u0441\u0442\u0430\u0432\u043B\u044F\u043B."
+    dialogueTexts:
+    - text: "\u042F \u0442\u0435\u0431\u044F \u0442\u0430\u043A \u0438 \u043F\u0440\u0435\u0434\u0441\u0442\u0430\u0432\u043B\u044F\u043B."
+      language: 1
+    - text: I always imagined you this way.
+      language: 2
+    delay: 0.04
+    isLeft: 1
+  - speakerName: "\u0421\u043C\u0435\u0440\u0442\u044C"
+    speakerNames:
+    - text: "\u0421\u043C\u0435\u0440\u0442\u044C"
+      language: 1
+    - text: Death
+      language: 2
+    speakerIcon: {fileID: 21300000, guid: 1c6622693046ea845bc080110caecb67, type: 3}
+    dialogueText: "\u041F\u043E\u0442\u043E\u043C\u0443 \u0447\u0442\u043E \u044F
+      \u043F\u0440\u0435\u0434\u0441\u0442\u0430\u043B\u0430 \u0432 \u043F\u043E\u043D\u044F\u0442\u043D\u043E\u043C
+      \u0434\u043B\u044F \u0442\u0435\u0431\u044F \u043E\u0431\u0440\u0430\u0437\u0435."
+    dialogueTexts:
+    - text: "\u041F\u043E\u0442\u043E\u043C\u0443 \u0447\u0442\u043E \u044F \u043F\u0440\u0435\u0434\u0441\u0442\u0430\u043B\u0430
+        \u0432 \u043F\u043E\u043D\u044F\u0442\u043D\u043E\u043C \u0434\u043B\u044F
+        \u0442\u0435\u0431\u044F \u043E\u0431\u0440\u0430\u0437\u0435."
+      language: 1
+    - text: Because I appeared in a form you can understand.
+      language: 2
+    delay: 0.04
+    isLeft: 0
+  - speakerName: "\u0421\u043C\u0435\u0440\u0442\u044C"
+    speakerNames:
+    - text: "\u0421\u043C\u0435\u0440\u0442\u044C"
+      language: 1
+    - text: Death
+      language: 2
+    speakerIcon: {fileID: 21300000, guid: 1c6622693046ea845bc080110caecb67, type: 3}
+    dialogueText: "\u0415\u0449\u0451 \u0432\u043E\u043F\u0440\u043E\u0441\u044B?"
+    dialogueTexts:
+    - text: "\u0415\u0449\u0451 \u0432\u043E\u043F\u0440\u043E\u0441\u044B?"
+      language: 1
+    - text: Any more questions?
+      language: 2
+    delay: 0.04
+    isLeft: 0
+  - speakerName: "\u041E\u0443\u044D\u043D"
+    speakerNames:
+    - text: "\u041E\u0443\u044D\u043D"
+      language: 1
+    - text: Owen
+      language: 2
+    speakerIcon: {fileID: 21300000, guid: 0fcb37bef2f0d76468565a50dfda6682, type: 3}
+    dialogueText: "\u0421\u043A\u043E\u043B\u044C\u043A\u043E \u0432\u0440\u0435\u043C\u0435\u043D\u0438
+      \u044F \u0442\u0443\u0442 \u043F\u0440\u043E\u0431\u044B\u043B?"
+    dialogueTexts:
+    - text: "\u0421\u043A\u043E\u043B\u044C\u043A\u043E \u0432\u0440\u0435\u043C\u0435\u043D\u0438
+        \u044F \u0442\u0443\u0442 \u043F\u0440\u043E\u0431\u044B\u043B?"
+      language: 1
+    - text: How long have I been here?
+      language: 2
+    delay: 0.04
+    isLeft: 1
+  - speakerName: "\u0421\u043C\u0435\u0440\u0442\u044C"
+    speakerNames:
+    - text: "\u0421\u043C\u0435\u0440\u0442\u044C"
+      language: 1
+    - text: Death
+      language: 2
+    speakerIcon: {fileID: 21300000, guid: 1c6622693046ea845bc080110caecb67, type: 3}
+    dialogueText: "\u0414\u0430\u0439-\u043A\u0430 \u043F\u043E\u0434\u0443\u043C\u0430\u0442\u044C...
+      \u041F\u0440\u043E\u0448\u043B\u043E \u0434\u043E\u0441\u0442\u0430\u0442\u043E\u0447\u043D\u043E
+      \u043B\u0435\u0442, \u0447\u0442\u043E\u0431\u044B \u043E \u0442\u0432\u043E\u0451\u043C
+      \u0441\u0443\u0449\u0435\u0441\u0442\u0432\u043E\u0432\u0430\u043D\u0438\u0438
+      \u0437\u0430\u0431\u044B\u043B\u0438."
+    dialogueTexts:
+    - text: "\u0414\u0430\u0439-\u043A\u0430 \u043F\u043E\u0434\u0443\u043C\u0430\u0442\u044C...
+        \u041F\u0440\u043E\u0448\u043B\u043E \u0434\u043E\u0441\u0442\u0430\u0442\u043E\u0447\u043D\u043E
+        \u043B\u0435\u0442, \u0447\u0442\u043E\u0431\u044B \u043E \u0442\u0432\u043E\u0451\u043C
+        \u0441\u0443\u0449\u0435\u0441\u0442\u0432\u043E\u0432\u0430\u043D\u0438\u0438
+        \u0437\u0430\u0431\u044B\u043B\u0438."
+      language: 1
+    - text: Let me think... It's been long enough for your existence to be forgotten.
+      language: 2
+    delay: 0.04
+    isLeft: 0
+  - speakerName: "\u041E\u0443\u044D\u043D"
+    speakerNames:
+    - text: "\u041E\u0443\u044D\u043D"
+      language: 1
+    - text: Owen
+      language: 2
+    speakerIcon: {fileID: 21300000, guid: 0fcb37bef2f0d76468565a50dfda6682, type: 3}
+    dialogueText: "\u041D\u0443... \u041B\u0430\u0434\u043D\u043E, \u0430 \u043F\u043E\u0447\u0435\u043C\u0443
+      \u044F \u0437\u0434\u0435\u0441\u044C? \u0418 \u0447\u0442\u043E \u044D\u0442\u043E
+      \u0432\u043E\u043E\u0431\u0449\u0435 \u0437\u0430 \u043C\u0435\u0441\u0442\u043E?"
+    dialogueTexts:
+    - text: "\u041D\u0443... \u041B\u0430\u0434\u043D\u043E, \u0430 \u043F\u043E\u0447\u0435\u043C\u0443
+        \u044F \u0437\u0434\u0435\u0441\u044C? \u0418 \u0447\u0442\u043E \u044D\u0442\u043E
+        \u0432\u043E\u043E\u0431\u0449\u0435 \u0437\u0430 \u043C\u0435\u0441\u0442\u043E?"
+      language: 1
+    - text: Well... Okay, why am I here? And what is this place, anyway?
+      language: 2
+    delay: 0.04
+    isLeft: 1
+  - speakerName: "\u0421\u043C\u0435\u0440\u0442\u044C"
+    speakerNames:
+    - text: "\u0421\u043C\u0435\u0440\u0442\u044C"
+      language: 1
+    - text: Death
+      language: 2
+    speakerIcon: {fileID: 21300000, guid: 1c6622693046ea845bc080110caecb67, type: 3}
+    dialogueText: "\u042D\u0442\u043E \u0442\u0432\u043E\u0451 \u0441\u043E\u0437\u043D\u0430\u043D\u0438\u0435.
+      \u042F \u043F\u043E\u0437\u0432\u0430\u043B\u0430 \u0442\u0435\u0431\u044F,
+      \u043F\u043E\u0442\u043E\u043C\u0443 \u0447\u0442\u043E \u0445\u043E\u0447\u0443
+      \u043F\u0440\u0435\u0434\u043B\u043E\u0436\u0438\u0442\u044C \u0442\u0435\u0431\u0435
+      \u0434\u043E\u0433\u043E\u0432\u043E\u0440."
+    dialogueTexts:
+    - text: "\u042D\u0442\u043E \u0442\u0432\u043E\u0451 \u0441\u043E\u0437\u043D\u0430\u043D\u0438\u0435.
+        \u042F \u043F\u043E\u0437\u0432\u0430\u043B\u0430 \u0442\u0435\u0431\u044F,
+        \u043F\u043E\u0442\u043E\u043C\u0443 \u0447\u0442\u043E \u0445\u043E\u0447\u0443
+        \u043F\u0440\u0435\u0434\u043B\u043E\u0436\u0438\u0442\u044C \u0442\u0435\u0431\u0435
+        \u0434\u043E\u0433\u043E\u0432\u043E\u0440."
+      language: 1
+    - text: his is your consciousness. I called you here because I want to offer
+        you a deal.
+      language: 2
+    delay: 0.04
+    isLeft: 0
+  - speakerName: "\u0421\u043C\u0435\u0440\u0442\u044C"
+    speakerNames:
+    - text: "\u0421\u043C\u0435\u0440\u0442\u044C"
+      language: 1
+    - text: Death
+      language: 2
+    speakerIcon: {fileID: 21300000, guid: 1c6622693046ea845bc080110caecb67, type: 3}
+    dialogueText: "\u0412 \u043C\u0438\u0440\u0435 \u0436\u0438\u0432\u044B\u0445,
+      \u043D\u0430 \u0442\u0432\u043E\u0435\u0439 \u0440\u043E\u0434\u0438\u043D\u0435,
+      \u0442\u0432\u043E\u0440\u0438\u0442\u0441\u044F \u0445\u0430\u043E\u0441. "
+    dialogueTexts:
+    - text: "\u0412 \u043C\u0438\u0440\u0435 \u0436\u0438\u0432\u044B\u0445, \u043D\u0430
+        \u0442\u0432\u043E\u0435\u0439 \u0440\u043E\u0434\u0438\u043D\u0435, \u0442\u0432\u043E\u0440\u0438\u0442\u0441\u044F
+        \u0445\u0430\u043E\u0441. "
+      language: 1
+    - text: 'In the world of the living, in your homeland, chaos reigns.  '
+      language: 2
+    delay: 0.04
+    isLeft: 0
+  - speakerName: "\u0421\u043C\u0435\u0440\u0442\u044C"
+    speakerNames:
+    - text: "\u0421\u043C\u0435\u0440\u0442\u044C"
+      language: 1
+    - text: Death
+      language: 2
+    speakerIcon: {fileID: 21300000, guid: 1c6622693046ea845bc080110caecb67, type: 3}
+    dialogueText: "\u0413\u0440\u0443\u043F\u043F\u0430 \u043B\u044E\u0434\u0435\u0439
+      \u043E\u0440\u0433\u0430\u043D\u0438\u0437\u043E\u0432\u0430\u043B\u0430 \u043A\u0443\u043B\u044C\u0442.
+      \u041E\u043D\u0438 \u0437\u0430\u0432\u043B\u0435\u043A\u0430\u043B\u0438 \u043A
+      \u0441\u0435\u0431\u0435 \u043D\u043E\u0432\u044B\u0445 \u043B\u044E\u0434\u0435\u0439
+      \u0438 \u0438\u0445 \u043A\u0443\u043B\u044C\u0442 \u0440\u043E\u0441."
+    dialogueTexts:
+    - text: "\u0413\u0440\u0443\u043F\u043F\u0430 \u043B\u044E\u0434\u0435\u0439
+        \u043E\u0440\u0433\u0430\u043D\u0438\u0437\u043E\u0432\u0430\u043B\u0430
+        \u043A\u0443\u043B\u044C\u0442. \u041E\u043D\u0438 \u0437\u0430\u0432\u043B\u0435\u043A\u0430\u043B\u0438
+        \u043A \u0441\u0435\u0431\u0435 \u043D\u043E\u0432\u044B\u0445 \u043B\u044E\u0434\u0435\u0439
+        \u0438 \u0438\u0445 \u043A\u0443\u043B\u044C\u0442 \u0440\u043E\u0441."
+      language: 1
+    - text: A group of people organized a cult. They lured in new followers, and
+        their cult grew.
+      language: 2
+    delay: 0.04
+    isLeft: 0
+  - speakerName: "\u0421\u043C\u0435\u0440\u0442\u044C"
+    speakerNames:
+    - text: "\u0421\u043C\u0435\u0440\u0442\u044C"
+      language: 1
+    - text: Death
+      language: 2
+    speakerIcon: {fileID: 21300000, guid: 1c6622693046ea845bc080110caecb67, type: 3}
+    dialogueText: "\u041E\u043D\u0438 \u043F\u0440\u0438\u043D\u043E\u0441\u0438\u043B\u0438
+      \u0432 \u0436\u0435\u0440\u0442\u0432\u0443 \u0441\u0432\u043E\u0438\u0445
+      \u0436\u0435 \u043F\u043E\u0441\u043B\u0435\u0434\u043E\u0432\u0430\u0442\u0435\u043B\u0435\u0439."
+    dialogueTexts:
+    - text: "\u041E\u043D\u0438 \u043F\u0440\u0438\u043D\u043E\u0441\u0438\u043B\u0438
+        \u0432 \u0436\u0435\u0440\u0442\u0432\u0443 \u0441\u0432\u043E\u0438\u0445
+        \u0436\u0435 \u043F\u043E\u0441\u043B\u0435\u0434\u043E\u0432\u0430\u0442\u0435\u043B\u0435\u0439."
+      language: 1
+    - text: They sacrificed their own followers.
+      language: 2
+    delay: 0.04
+    isLeft: 0
+  - speakerName: "\u0421\u043C\u0435\u0440\u0442\u044C"
+    speakerNames:
+    - text: "\u0421\u043C\u0435\u0440\u0442\u044C"
+      language: 1
+    - text: Death
+      language: 2
+    speakerIcon: {fileID: 21300000, guid: 1c6622693046ea845bc080110caecb67, type: 3}
+    dialogueText: "\u042F \u0437\u0430 \u043D\u0438\u043C\u0438 \u043F\u0440\u0438\u0445\u043E\u0434\u0438\u043B\u0430
+      \u0438 \u0434\u0443\u043C\u0430\u043B\u0430, \u0447\u0442\u043E \u044D\u0442\u043E
+      \u043E\u0447\u0435\u0440\u0435\u0434\u043D\u044B\u0435 \u0444\u0430\u043D\u0430\u0442\u0438\u043A\u0438
+      \u0438 \u043E\u043D\u0438 \u043D\u0435 \u043F\u0440\u0435\u0434\u0441\u0442\u0430\u0432\u043B\u044F\u044E\u0442
+      \u0443\u0433\u0440\u043E\u0437\u044B..."
+    dialogueTexts:
+    - text: "\u042F \u0437\u0430 \u043D\u0438\u043C\u0438 \u043F\u0440\u0438\u0445\u043E\u0434\u0438\u043B\u0430
+        \u0438 \u0434\u0443\u043C\u0430\u043B\u0430, \u0447\u0442\u043E \u044D\u0442\u043E
+        \u043E\u0447\u0435\u0440\u0435\u0434\u043D\u044B\u0435 \u0444\u0430\u043D\u0430\u0442\u0438\u043A\u0438
+        \u0438 \u043E\u043D\u0438 \u043D\u0435 \u043F\u0440\u0435\u0434\u0441\u0442\u0430\u0432\u043B\u044F\u044E\u0442
+        \u0443\u0433\u0440\u043E\u0437\u044B..."
+      language: 1
+    - text: I came for them and thought they were just more fanatics, and that they
+        posed no threat...
+      language: 2
+    delay: 0.04
+    isLeft: 0
+  - speakerName: "\u0421\u043C\u0435\u0440\u0442\u044C"
+    speakerNames:
+    - text: "\u0421\u043C\u0435\u0440\u0442\u044C"
+      language: 1
+    - text: Death
+      language: 2
+    speakerIcon: {fileID: 21300000, guid: 1c6622693046ea845bc080110caecb67, type: 3}
+    dialogueText: "\u041D\u043E \u043E\u043D\u0438 \u0443\u0437\u043D\u0430\u043B\u0438
+      \u043E\u0431 \u043E\u0434\u043D\u043E\u043C \u043E\u0447\u0435\u043D\u044C
+      \u0441\u0442\u0440\u0430\u0448\u043D\u043E\u043C \u0440\u0438\u0442\u0443\u0430\u043B\u0435..."
+    dialogueTexts:
+    - text: "\u041D\u043E \u043E\u043D\u0438 \u0443\u0437\u043D\u0430\u043B\u0438
+        \u043E\u0431 \u043E\u0434\u043D\u043E\u043C \u043E\u0447\u0435\u043D\u044C
+        \u0441\u0442\u0440\u0430\u0448\u043D\u043E\u043C \u0440\u0438\u0442\u0443\u0430\u043B\u0435..."
+      language: 1
+    - text: But they learned of a very dark ritual...
+      language: 2
+    delay: 0.04
+    isLeft: 0
+  - speakerName: "\u0421\u043C\u0435\u0440\u0442\u044C"
+    speakerNames:
+    - text: "\u0421\u043C\u0435\u0440\u0442\u044C"
+      language: 1
+    - text: Death
+      language: 2
+    speakerIcon: {fileID: 21300000, guid: 1c6622693046ea845bc080110caecb67, type: 3}
+    dialogueText: "\u042F \u0431\u044B\u043B\u0430 \u0441\u0432\u0438\u0434\u0435\u0442\u0435\u043B\u044C\u043D\u0438\u0446\u0435\u0439,
+      \u043F\u043E\u0442\u043E\u043C\u0443 \u0447\u0442\u043E \u0434\u043B\u044F
+      \u044D\u0442\u043E\u0433\u043E \u0440\u0438\u0442\u0443\u0430\u043B\u0430 \u0431\u044B\u043B\u043E
+      \u043F\u0440\u0438\u043D\u0435\u0441\u0435\u043D\u043E \u043C\u043D\u043E\u0433\u043E
+      \u0436\u0435\u0440\u0442\u0432..."
+    dialogueTexts:
+    - text: "\u042F \u0431\u044B\u043B\u0430 \u0441\u0432\u0438\u0434\u0435\u0442\u0435\u043B\u044C\u043D\u0438\u0446\u0435\u0439,
+        \u043F\u043E\u0442\u043E\u043C\u0443 \u0447\u0442\u043E \u0434\u043B\u044F
+        \u044D\u0442\u043E\u0433\u043E \u0440\u0438\u0442\u0443\u0430\u043B\u0430
+        \u0431\u044B\u043B\u043E \u043F\u0440\u0438\u043D\u0435\u0441\u0435\u043D\u043E
+        \u043C\u043D\u043E\u0433\u043E \u0436\u0435\u0440\u0442\u0432..."
+      language: 1
+    - text: I witnessed it, because that ritual required many sacrifices...
+      language: 2
+    delay: 0.04
+    isLeft: 0
+  - speakerName: "\u0421\u043C\u0435\u0440\u0442\u044C"
+    speakerNames:
+    - text: "\u0421\u043C\u0435\u0440\u0442\u044C"
+      language: 1
+    - text: Death
+      language: 2
+    speakerIcon: {fileID: 21300000, guid: 1c6622693046ea845bc080110caecb67, type: 3}
+    dialogueText: "\u041E\u043D\u0438 \u043E\u0442\u043A\u0440\u044B\u043B\u0438
+      \u0434\u0435\u043C\u043E\u043D\u0430\u043C \u0434\u043E\u0440\u043E\u0433\u0443
+      \u043A \u0442\u0435\u043B\u0430\u043C \u0436\u0438\u0432\u044B\u0445."
+    dialogueTexts:
+    - text: "\u041E\u043D\u0438 \u043E\u0442\u043A\u0440\u044B\u043B\u0438 \u0434\u0435\u043C\u043E\u043D\u0430\u043C
+        \u0434\u043E\u0440\u043E\u0433\u0443 \u043A \u0442\u0435\u043B\u0430\u043C
+        \u0436\u0438\u0432\u044B\u0445."
+      language: 1
+    - text: They opened a path for demons into the bodies of the living.
+      language: 2
+    delay: 0.04
+    isLeft: 0
+  - speakerName: "\u0421\u043C\u0435\u0440\u0442\u044C"
+    speakerNames:
+    - text: "\u0421\u043C\u0435\u0440\u0442\u044C"
+      language: 1
+    - text: Death
+      language: 2
+    speakerIcon: {fileID: 21300000, guid: 1c6622693046ea845bc080110caecb67, type: 3}
+    dialogueText: "\u0412\u0441\u044F \u0442\u0432\u043E\u044F \u0440\u043E\u0434\u0438\u043D\u0430
+      \u0441\u0442\u0430\u043B\u0430 \u043E\u0434\u0435\u0440\u0436\u0438\u043C\u0430
+      \u0434\u0435\u043C\u043E\u043D\u0430\u043C\u0438. \u0415\u0441\u0442\u044C
+      \u043A\u043E\u043D\u0435\u0447\u043D\u043E \u0438 \u0442\u0435, \u043A\u0442\u043E
+      \u0438\u0437\u0431\u0435\u0436\u0430\u043B \u0442\u0430\u043A\u043E\u0439 \u0443\u0447\u0430\u0441\u0442\u0438,
+      \u043D\u043E \u0438\u0445 \u0435\u0434\u0438\u043D\u0438\u0446\u044B."
+    dialogueTexts:
+    - text: "\u0412\u0441\u044F \u0442\u0432\u043E\u044F \u0440\u043E\u0434\u0438\u043D\u0430
+        \u0441\u0442\u0430\u043B\u0430 \u043E\u0434\u0435\u0440\u0436\u0438\u043C\u0430
+        \u0434\u0435\u043C\u043E\u043D\u0430\u043C\u0438. \u0415\u0441\u0442\u044C
+        \u043A\u043E\u043D\u0435\u0447\u043D\u043E \u0438 \u0442\u0435, \u043A\u0442\u043E
+        \u0438\u0437\u0431\u0435\u0436\u0430\u043B \u0442\u0430\u043A\u043E\u0439
+        \u0443\u0447\u0430\u0441\u0442\u0438, \u043D\u043E \u0438\u0445 \u0435\u0434\u0438\u043D\u0438\u0446\u044B."
+      language: 1
+    - text: Your entire homeland has become possessed by demons. There are, of course,
+        those who escaped this fate, but only a handful.
+      language: 2
+    delay: 0.04
+    isLeft: 0
+  - speakerName: "\u041E\u0443\u044D\u043D"
+    speakerNames:
+    - text: "\u041E\u0443\u044D\u043D"
+      language: 1
+    - text: Owen
+      language: 2
+    speakerIcon: {fileID: 21300000, guid: 40d398d77bfdd954e8a3e61030daaaaa, type: 3}
+    dialogueText: "\u0410\u0434? \u0422\u0430\u043A \u043E\u043D \u0441\u0443\u0449\u0435\u0441\u0442\u0432\u0443\u0435\u0442.
+      \u0421\u0442\u0440\u0430\u043D\u043D\u043E, \u043D\u043E \u044F \u043D\u0435
+      \u043F\u043E\u043C\u043D\u044E, \u0447\u0442\u043E\u0431\u044B \u0431\u044B\u043B
+      \u0432 \u043D\u0451\u043C \u043F\u043E\u0441\u043B\u0435 \u0441\u043C\u0435\u0440\u0442\u0438."
+    dialogueTexts:
+    - text: "\u0410\u0434? \u0422\u0430\u043A \u043E\u043D \u0441\u0443\u0449\u0435\u0441\u0442\u0432\u0443\u0435\u0442.
+        \u0421\u0442\u0440\u0430\u043D\u043D\u043E, \u043D\u043E \u044F \u043D\u0435
+        \u043F\u043E\u043C\u043D\u044E, \u0447\u0442\u043E\u0431\u044B \u0431\u044B\u043B
+        \u0432 \u043D\u0451\u043C \u043F\u043E\u0441\u043B\u0435 \u0441\u043C\u0435\u0440\u0442\u0438."
+      language: 1
+    - text: Hell? So it does exist. Strange, but I don't remember being there after
+        I died.
+      language: 2
+    delay: 0.04
+    isLeft: 1
+  - speakerName: "\u0421\u043C\u0435\u0440\u0442\u044C"
+    speakerNames:
+    - text: "\u0421\u043C\u0435\u0440\u0442\u044C"
+      language: 1
+    - text: Death
+      language: 2
+    speakerIcon: {fileID: 21300000, guid: 1c6622693046ea845bc080110caecb67, type: 3}
+    dialogueText: "\u0422\u044B \u0431\u044B\u043B \u0432 \u043F\u0443\u0441\u0442\u043E\u0442\u0435.
+      \u041F\u043E\u0434\u0440\u043E\u0431\u043D\u043E\u0441\u0442\u0435\u0439 \u043D\u0435
+      \u0436\u0434\u0438, \u0441\u0435\u0439\u0447\u0430\u0441 \u043D\u0435 \u0434\u043E
+      \u044D\u0442\u043E\u0433\u043E."
+    dialogueTexts:
+    - text: "\u0422\u044B \u0431\u044B\u043B \u0432 \u043F\u0443\u0441\u0442\u043E\u0442\u0435.
+        \u041F\u043E\u0434\u0440\u043E\u0431\u043D\u043E\u0441\u0442\u0435\u0439
+        \u043D\u0435 \u0436\u0434\u0438, \u0441\u0435\u0439\u0447\u0430\u0441 \u043D\u0435
+        \u0434\u043E \u044D\u0442\u043E\u0433\u043E."
+      language: 1
+    - text: "You were in the void. Don't expect details \u2014 now is not the time."
+      language: 2
+    delay: 0.04
+    isLeft: 0
+  - speakerName: "\u041E\u0443\u044D\u043D"
+    speakerNames:
+    - text: "\u041E\u0443\u044D\u043D"
+      language: 1
+    - text: Owen
+      language: 2
+    speakerIcon: {fileID: 21300000, guid: 0fcb37bef2f0d76468565a50dfda6682, type: 3}
+    dialogueText: "\u0422\u0430\u043A \u0442\u044B \u0445\u043E\u0447\u0435\u0448\u044C,
+      \u0447\u0442\u043E\u0431\u044B \u044F \u043F\u043E\u043C\u043E\u0433 \u0442\u0435\u0431\u0435?
+      \u0410 \u0435\u0441\u043B\u0438 \u044F \u043D\u0435 \u0445\u043E\u0447\u0443?"
+    dialogueTexts:
+    - text: "\u0422\u0430\u043A \u0442\u044B \u0445\u043E\u0447\u0435\u0448\u044C,
+        \u0447\u0442\u043E\u0431\u044B \u044F \u043F\u043E\u043C\u043E\u0433 \u0442\u0435\u0431\u0435?
+        \u0410 \u0435\u0441\u043B\u0438 \u044F \u043D\u0435 \u0445\u043E\u0447\u0443?"
+      language: 1
+    - text: So you want me to help you? And what if I don't want to?
+      language: 2
+    delay: 0.04
+    isLeft: 1
+  - speakerName: "\u0421\u043C\u0435\u0440\u0442\u044C"
+    speakerNames:
+    - text: "\u0421\u043C\u0435\u0440\u0442\u044C"
+      language: 1
+    - text: Death
+      language: 2
+    speakerIcon: {fileID: 21300000, guid: 1c6622693046ea845bc080110caecb67, type: 3}
+    dialogueText: "\u042F \u0437\u043D\u0430\u043B\u0430, \u0447\u0442\u043E \u0442\u044B
+      \u0442\u0430\u043A \u043E\u0442\u0432\u0435\u0442\u0438\u0448\u044C. \u0418
+      \u043F\u043E\u044D\u0442\u043E\u043C\u0443 \u043F\u0440\u0435\u0434\u043B\u0430\u0433\u0430\u044E
+      \u0437\u0430\u043A\u043B\u044E\u0447\u0438\u0442\u044C \u0434\u043E\u0433\u043E\u0432\u043E\u0440.
+      \u0427\u0435\u0433\u043E \u0442\u044B \u0445\u043E\u0447\u0435\u0448\u044C?"
+    dialogueTexts:
+    - text: "\u042F \u0437\u043D\u0430\u043B\u0430, \u0447\u0442\u043E \u0442\u044B
+        \u0442\u0430\u043A \u043E\u0442\u0432\u0435\u0442\u0438\u0448\u044C. \u0418
+        \u043F\u043E\u044D\u0442\u043E\u043C\u0443 \u043F\u0440\u0435\u0434\u043B\u0430\u0433\u0430\u044E
+        \u0437\u0430\u043A\u043B\u044E\u0447\u0438\u0442\u044C \u0434\u043E\u0433\u043E\u0432\u043E\u0440.
+        \u0427\u0435\u0433\u043E \u0442\u044B \u0445\u043E\u0447\u0435\u0448\u044C?"
+      language: 1
+    - text: I knew you'd say that. And that's why I'm offering you a deal. What do
+        you want?
+      language: 2
+    delay: 0.04
+    isLeft: 0
+  - speakerName: "\u041E\u0443\u044D\u043D"
+    speakerNames:
+    - text: "\u041E\u0443\u044D\u043D"
+      language: 1
+    - text: Owen
+      language: 2
+    speakerIcon: {fileID: 21300000, guid: 0fcb37bef2f0d76468565a50dfda6682, type: 3}
+    dialogueText: "\u0414\u0430\u0439-\u043A\u0430 \u043F\u043E\u0434\u0443\u043C\u0430\u0442\u044C..."
+    dialogueTexts:
+    - text: "\u0414\u0430\u0439-\u043A\u0430 \u043F\u043E\u0434\u0443\u043C\u0430\u0442\u044C..."
+      language: 1
+    - text: 'Let me think...  '
+      language: 2
+    delay: 0.04
+    isLeft: 1
+  - speakerName: "\u041E\u0443\u044D\u043D"
+    speakerNames:
+    - text: "\u041E\u0443\u044D\u043D"
+      language: 1
+    - text: Owen
+      language: 2
+    speakerIcon: {fileID: 21300000, guid: 5826fba851ca78849bff0cc8e0ee8cf8, type: 3}
+    dialogueText: ...
+    dialogueTexts:
+    - text: ...
+      language: 1
+    - text: ...
+      language: 2
+    delay: 0.04
+    isLeft: 1
+  - speakerName: "\u0421\u043C\u0435\u0440\u0442\u044C"
+    speakerNames:
+    - text: "\u0421\u043C\u0435\u0440\u0442\u044C"
+      language: 1
+    - text: Death
+      language: 2
+    speakerIcon: {fileID: 21300000, guid: 1c6622693046ea845bc080110caecb67, type: 3}
+    dialogueText: "\u042F \u0434\u043E\u0433\u0430\u0434\u044B\u0432\u0430\u044E\u0441\u044C,
+      \u043E \u043A\u043E\u043C \u0442\u044B \u0434\u0443\u043C\u0430\u0435\u0448\u044C.
+      \u041C\u043E\u0436\u0435\u0448\u044C \u043D\u0435 \u043E\u0442\u0432\u0435\u0447\u0430\u0442\u044C.
+      \u042D\u0442\u043E \u0432\u0441\u0451, \u0447\u0435\u0433\u043E \u0442\u044B
+      \u0445\u043E\u0447\u0435\u0448\u044C?"
+    dialogueTexts:
+    - text: "\u042F \u0434\u043E\u0433\u0430\u0434\u044B\u0432\u0430\u044E\u0441\u044C,
+        \u043E \u043A\u043E\u043C \u0442\u044B \u0434\u0443\u043C\u0430\u0435\u0448\u044C.
+        \u041C\u043E\u0436\u0435\u0448\u044C \u043D\u0435 \u043E\u0442\u0432\u0435\u0447\u0430\u0442\u044C.
+        \u042D\u0442\u043E \u0432\u0441\u0451, \u0447\u0435\u0433\u043E \u0442\u044B
+        \u0445\u043E\u0447\u0435\u0448\u044C?"
+      language: 1
+    - text: I can guess who you're thinking of. You don't have to answer. Is that
+        all you want?
+      language: 2
+    delay: 0.04
+    isLeft: 0
+  - speakerName: "\u041E\u0443\u044D\u043D"
+    speakerNames:
+    - text: "\u041E\u0443\u044D\u043D"
+      language: 1
+    - text: Owen
+      language: 2
+    speakerIcon: {fileID: 21300000, guid: 5826fba851ca78849bff0cc8e0ee8cf8, type: 3}
+    dialogueText: "\u041D\u0435\u0442. \u0415\u0441\u043B\u0438 \u043F\u043E\u0441\u043B\u0435
+      \u0432\u0441\u0435\u0433\u043E \u044F \u043E\u0441\u0442\u0430\u043D\u0443\u0441\u044C
+      \u0432 \u043C\u0438\u0440\u0435 \u0436\u0438\u0432\u044B\u0445, \u0442\u043E
+      \u043A\u0430\u043A \u043B\u044E\u0434\u0438 \u0441\u043D\u043E\u0432\u0430
+      \u043E\u0442\u0440\u0435\u0430\u0433\u0438\u0440\u0443\u044E\u0442 \u043D\u0430
+      \u043C\u043E\u0438 \u0441\u043F\u043E\u0441\u043E\u0431\u043D\u043E\u0441\u0442\u0438?
+      \u041D\u0430 \u0442\u043E, \u043A\u0442\u043E \u044F \u0442\u0430\u043A\u043E\u0439..."
+    dialogueTexts:
+    - text: "\u041D\u0435\u0442. \u0415\u0441\u043B\u0438 \u043F\u043E\u0441\u043B\u0435
+        \u0432\u0441\u0435\u0433\u043E \u044F \u043E\u0441\u0442\u0430\u043D\u0443\u0441\u044C
+        \u0432 \u043C\u0438\u0440\u0435 \u0436\u0438\u0432\u044B\u0445, \u0442\u043E
+        \u043A\u0430\u043A \u043B\u044E\u0434\u0438 \u0441\u043D\u043E\u0432\u0430
+        \u043E\u0442\u0440\u0435\u0430\u0433\u0438\u0440\u0443\u044E\u0442 \u043D\u0430
+        \u043C\u043E\u0438 \u0441\u043F\u043E\u0441\u043E\u0431\u043D\u043E\u0441\u0442\u0438?
+        \u041D\u0430 \u0442\u043E, \u043A\u0442\u043E \u044F \u0442\u0430\u043A\u043E\u0439..."
+      language: 1
+    - text: No. If I remain in the world of the living after all this, how will people
+        react to my abilities again? To what I am...
+      language: 2
+    delay: 0.04
+    isLeft: 1
+  - speakerName: "\u0421\u043C\u0435\u0440\u0442\u044C"
+    speakerNames:
+    - text: "\u0421\u043C\u0435\u0440\u0442\u044C"
+      language: 1
+    - text: Death
+      language: 2
+    speakerIcon: {fileID: 21300000, guid: 1c6622693046ea845bc080110caecb67, type: 3}
+    dialogueText: "\u042D\u0442\u043E \u0443\u0436\u0435 \u0437\u0430\u0432\u0438\u0441\u0438\u0442
+      \u043E\u0442 \u0442\u0435\u0431\u044F. \u041D\u043E \u044F \u043C\u043E\u0433\u0443
+      \u0442\u0435\u0431\u0435 \u043F\u043E\u043C\u043E\u0447\u044C \u0432\u0441\u0435\u043C,
+      \u0447\u0442\u043E \u0431\u0443\u0434\u0435\u0442 \u0432 \u043C\u043E\u0438\u0445
+      \u0441\u0438\u043B\u0430\u0445."
+    dialogueTexts:
+    - text: "\u042D\u0442\u043E \u0443\u0436\u0435 \u0437\u0430\u0432\u0438\u0441\u0438\u0442
+        \u043E\u0442 \u0442\u0435\u0431\u044F. \u041D\u043E \u044F \u043C\u043E\u0433\u0443
+        \u0442\u0435\u0431\u0435 \u043F\u043E\u043C\u043E\u0447\u044C \u0432\u0441\u0435\u043C,
+        \u0447\u0442\u043E \u0431\u0443\u0434\u0435\u0442 \u0432 \u043C\u043E\u0438\u0445
+        \u0441\u0438\u043B\u0430\u0445."
+      language: 1
+    - text: That's up to you. But I can help you with everything in my power.
+      language: 2
+    delay: 0.04
+    isLeft: 0
+  - speakerName: "\u0421\u043C\u0435\u0440\u0442\u044C"
+    speakerNames:
+    - text: "\u0421\u043C\u0435\u0440\u0442\u044C"
+      language: 1
+    - text: Death
+      language: 2
+    speakerIcon: {fileID: 21300000, guid: 1c6622693046ea845bc080110caecb67, type: 3}
+    dialogueText: "\u041F\u043E\u043A\u0430\u0436\u0438 \u043B\u044E\u0434\u044F\u043C,
+      \u0447\u0442\u043E \u0442\u044B \u043D\u0435 \u043F\u0440\u0435\u0434\u0441\u0442\u0430\u0432\u043B\u044F\u0435\u0448\u044C
+      \u0434\u043B\u044F \u043D\u0438\u0445 \u0443\u0433\u0440\u043E\u0437\u044B."
+    dialogueTexts:
+    - text: "\u041F\u043E\u043A\u0430\u0436\u0438 \u043B\u044E\u0434\u044F\u043C,
+        \u0447\u0442\u043E \u0442\u044B \u043D\u0435 \u043F\u0440\u0435\u0434\u0441\u0442\u0430\u0432\u043B\u044F\u0435\u0448\u044C
+        \u0434\u043B\u044F \u043D\u0438\u0445 \u0443\u0433\u0440\u043E\u0437\u044B."
+      language: 1
+    - text: Show people that you're not a threat to them.
+      language: 2
+    delay: 0.04
+    isLeft: 0
+  - speakerName: "\u041E\u0443\u044D\u043D"
+    speakerNames:
+    - text: "\u041E\u0443\u044D\u043D"
+      language: 1
+    - text: Owen
+      language: 2
+    speakerIcon: {fileID: 21300000, guid: 5826fba851ca78849bff0cc8e0ee8cf8, type: 3}
+    dialogueText: ...
+    dialogueTexts:
+    - text: ...
+      language: 1
+    - text: ...
+      language: 2
+    delay: 0.04
+    isLeft: 1
+  - speakerName: "\u041E\u0443\u044D\u043D"
+    speakerNames:
+    - text: "\u041E\u0443\u044D\u043D"
+      language: 1
+    - text: Owen
+      language: 2
+    speakerIcon: {fileID: 21300000, guid: 0fcb37bef2f0d76468565a50dfda6682, type: 3}
+    dialogueText: "\u0412\u043E\u0437\u0432\u0440\u0430\u0449\u0430\u0439 \u043C\u0435\u043D\u044F
+      \u0443\u0436\u0435."
+    dialogueTexts:
+    - text: "\u0412\u043E\u0437\u0432\u0440\u0430\u0449\u0430\u0439 \u043C\u0435\u043D\u044F
+        \u0443\u0436\u0435."
+      language: 1
+    - text: Send me back already.
+      language: 2
+    delay: 0.04
+    isLeft: 1
+  - speakerName: "\u0421\u043C\u0435\u0440\u0442\u044C"
+    speakerNames:
+    - text: "\u0421\u043C\u0435\u0440\u0442\u044C"
+      language: 1
+    - text: Death
+      language: 2
+    speakerIcon: {fileID: 21300000, guid: 1c6622693046ea845bc080110caecb67, type: 3}
+    dialogueText: "\u041F\u0440\u0438\u0433\u043E\u0442\u043E\u0432\u044C\u0441\u044F."
+    dialogueTexts:
+    - text: "\u041F\u0440\u0438\u0433\u043E\u0442\u043E\u0432\u044C\u0441\u044F."
+      language: 1
+    - text: Get ready.
+      language: 2
+    delay: 0.04
+    isLeft: 0

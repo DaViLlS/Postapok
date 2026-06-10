@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dab9a59d72214ddc8f748aa6ad80d96f, type: 3}
+  m_Name: EnemiesConfig
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Levels.Scripts.EnemyLevelsConfig
+  enemiesLevels:
+  - {fileID: 11400000, guid: 3228d0c8e24ba29469fa37391b1a9190, type: 2}
+  - {fileID: 11400000, guid: 40cfee7ebdd0eae46bb2dce322be27fd, type: 2}
+  - {fileID: 11400000, guid: 6060b0dc6c14bab44bc8ac346b21abea, type: 2}
+  - {fileID: 11400000, guid: c8839a35f1a1d6e40a6c9d56da8a8704, type: 2}
+  - {fileID: 11400000, guid: ab46aa0fa517078498af761c9daf4544, type: 2}
+  - {fileID: 11400000, guid: 05fdb9eacb9dd484b8c154a973690d89, type: 2}
+  - {fileID: 11400000, guid: 79ca6ad1c583c9a4190f59bcea0ede62, type: 2}

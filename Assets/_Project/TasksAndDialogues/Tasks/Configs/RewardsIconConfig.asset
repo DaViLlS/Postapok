@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 941b178dfe3845919834af1f21756b78, type: 3}
+  m_Name: RewardsIconConfig
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Tasks.DaylyWeekly.Scripts.Data.RewardsIconConfig
+  rewardsIcons:
+  - rewardIcon: {fileID: -689520407193891599, guid: 0c1ad13b1c334e942aaee6d1e499fcff, type: 3}
+    rewardType: 0
+  - rewardIcon: {fileID: 160890277334083914, guid: 0c1ad13b1c334e942aaee6d1e499fcff, type: 3}
+    rewardType: 1
+  - rewardIcon: {fileID: 299985813260920670, guid: 0c1ad13b1c334e942aaee6d1e499fcff, type: 3}
+    rewardType: 2
+  - rewardIcon: {fileID: 851732376169915768, guid: 955e0bf2b359c334091456d5d4648f6a, type: 3}
+    rewardType: 3
