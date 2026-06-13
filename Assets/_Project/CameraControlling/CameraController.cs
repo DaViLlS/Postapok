@@ -12,7 +12,6 @@ namespace _Project.CameraControlling
         [SerializeField] private CinemachineCamera mainCamera;
         [SerializeField] private CinemachineFollow cinemachineFollow;
         [SerializeField] private Transform trackingTarget;
-        [SerializeField] private Volume globalVolume;
         [SerializeField] private float cameraSpeed;
         [Header("Zoom Settings")]
         [SerializeField] private float zoomSpeed = 2f;
@@ -20,6 +19,7 @@ namespace _Project.CameraControlling
         [SerializeField] private float maxZoom = 20f;
 
         private ChromaticAberration _aberration;
+        private Volume _globalVolume;
         
         public bool CanMove { get; private set; }
 
@@ -27,36 +27,13 @@ namespace _Project.CameraControlling
 
         private void Awake()
         {
+            _globalVolume = FindAnyObjectByType<Volume>();
             mainCamera.Follow = trackingTarget;
 
-            if (globalVolume.profile.TryGet<ChromaticAberration>(out var aberration))
+            if (_globalVolume.profile.TryGet<ChromaticAberration>(out var aberration))
             {
                 _aberration = aberration;
                 _aberration.intensity.value = 0f;
-            }
-        }
-
-        public void ReturnCameraToCharacter()
-        {
-            CanMove = false;
-            
-            cinemachineFollow.enabled = true;
-
-            DisableFreeCameraEffects();
-        }
-
-        private void ChangeCameraState()
-        {
-            CanMove = !CanMove;
-            cinemachineFollow.enabled = !CanMove;
-
-            if (CanMove)
-            {
-                EnableFreeCameraEffects();
-            }
-            else
-            {
-                DisableFreeCameraEffects();
             }
         }
         

@@ -40,6 +40,8 @@ namespace _Project.TasksAndDialogues.Tasks.Scripts.UI
         
         public override void Initialize()
         {
+            return;
+            
             SetupMainPlotTasksView();
             SetupSecondaryPlotTasksView();
             SetupDailyTasksView();
@@ -53,6 +55,8 @@ namespace _Project.TasksAndDialogues.Tasks.Scripts.UI
 
         public override void Dispose()
         {
+            return;
+            
             _tasksController.OnTaskUpdated -= UpdateView;
             _tasksController.OnTaskCompleted -= UpdateView;
             _localizationController.OnLanguageChanged -= UpdateView;

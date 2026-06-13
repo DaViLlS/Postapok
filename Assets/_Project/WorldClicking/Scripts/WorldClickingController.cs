@@ -9,12 +9,8 @@ namespace _Project.WorldClicking.Scripts
         [Inject] private IInstantiator _instantiator;
         [Inject] private DiContainer _diContainer;
 
+        [SerializeField] private Camera mainCamera;
         [SerializeField] private GUISkin skin;
-        [SerializeField] private LayerMask squadLayer;
-        [SerializeField] private LayerMask attackLayer;
-        [SerializeField] private LayerMask defendLayer;
-        [SerializeField] private LayerMask mainCharacterLayer;
-        [SerializeField] private LayerMask destroyLayer;
         [SerializeField] private LayerMask interactableLayer;
         [Header("Debug")] 
         [SerializeField] private bool isTesting = false;
@@ -24,13 +20,6 @@ namespace _Project.WorldClicking.Scripts
         private Vector2 _endPos;
         private Rect _rect;
         
-        private Camera _camera;
-
-        public void Initialize()
-        {
-            _camera = Camera.main;
-        }
-        
         private void OnDestroy()
         {
             
@@ -38,7 +27,7 @@ namespace _Project.WorldClicking.Scripts
         
         private void OnGUI()
         {
-            if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
+            /*if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
                 return;
             
             GUI.skin = skin;
@@ -69,7 +58,7 @@ namespace _Project.WorldClicking.Scripts
                 );
 			
                 GUI.Box(_rect, "");
-            }
+            }*/
         }
 
         private void Update()
@@ -79,19 +68,7 @@ namespace _Project.WorldClicking.Scripts
                 if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
                     return;
                 
-                if (CheckForClickOnDefendLayer(out var defendable))
-                {
-                    
-                    return;
-                }
-
-                if (CheckForClickOnDestroyLayer(out var destroyable))
-                {
-                    
-                    return;
-                }
-                
-                var mousePosition = _camera.ScreenToWorldPoint(Input.mousePosition);
+                var mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
             }
             
             if (Input.GetMouseButtonUp(0))
@@ -109,108 +86,11 @@ namespace _Project.WorldClicking.Scripts
                 }
             }
         }
-        
-        private bool CheckForClickOnSquad()
-        {
-            var mousePosition = _camera.ScreenToWorldPoint(Input.mousePosition);
-        
-            var hit = Physics2D.Raycast(mousePosition, Vector2.zero, 
-                Mathf.Infinity, squadLayer);
-        
-            if (hit.collider != null)
-            {
-                var clickable = hit.collider.GetComponent<IClickable>();
-                
-                if (clickable != null)
-                {
-                    clickable.OnClick();
-                    return true;
-                }
-            }
-            
-            return false;
-        }
-
-        private bool CheckForClickOnDefendLayer(out IDefendable defendable)
-        {
-            defendable = null;
-            var mousePosition = _camera.ScreenToWorldPoint(Input.mousePosition);
-        
-            var hit = Physics2D.Raycast(mousePosition, Vector2.zero, 
-                Mathf.Infinity, defendLayer);
-            
-            var mainCharacterHit = Physics2D.Raycast(mousePosition, Vector2.zero, 
-                Mathf.Infinity, mainCharacterLayer);
-        
-            if (hit.collider != null)
-            {
-                defendable = hit.collider.GetComponentInParent<IDefendable>();
-                
-                if (defendable != null)
-                {
-                    return true;
-                }
-
-                defendable = hit.collider.GetComponent<IDefendable>();
-
-                if (defendable != null)
-                {
-                    return true;
-                }
-            }
-
-            if (mainCharacterHit.collider != null)
-            {
-                defendable = hit.collider.GetComponentInParent<IDefendable>();
-                
-                if (defendable != null)
-                {
-                    return true;
-                }
-
-                defendable = hit.collider.GetComponent<IDefendable>();
-
-                if (defendable != null)
-                {
-                    return true;
-                }
-            }
-            
-            return false;
-        }
-        
-        private bool CheckForClickOnDestroyLayer(out IDestroyable destroyable)
-        {
-            destroyable = null;
-            var mousePosition = _camera.ScreenToWorldPoint(Input.mousePosition);
-        
-            var hit = Physics2D.Raycast(mousePosition, Vector2.zero, 
-                Mathf.Infinity, destroyLayer);
-        
-            if (hit.collider != null)
-            {
-                destroyable = hit.collider.GetComponentInParent<IDestroyable>();
-                
-                if (destroyable != null)
-                {
-                    return true;
-                }
-
-                destroyable = hit.collider.GetComponent<IDestroyable>();
-
-                if (destroyable != null)
-                {
-                    return true;
-                }
-            }
-            
-            return false;
-        }
 
         private bool CheckForClickOnInteractable(out IInteractable interactable)
         {
             interactable = null;
-            var mousePosition = _camera.ScreenToWorldPoint(Input.mousePosition);
+            var mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
         
             var hit = Physics2D.Raycast(mousePosition, Vector2.zero, 
                 Mathf.Infinity, interactableLayer);

@@ -13,6 +13,8 @@ namespace _Project.MainCharacter.Scripts.UI
 
         private void Start()
         {
+            return;
+            
             healthView.Initialize(_mainCharacter.Health);
             staminaView.Initialize(_mainCharacter.Stamina);
         }

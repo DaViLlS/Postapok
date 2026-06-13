@@ -1,12 +1,13 @@
 ﻿using System;
 using _Project.Main.Animations;
 using _Project.Stats;
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace _Project.MainCharacter.Scripts
 {
-    public class Movement : MonoBehaviour
+    public class Movement : NetworkBehaviour
     {
         public event Action OnMovementPerformed;
         public event Action OnCameraStateChanged;
@@ -47,8 +48,6 @@ namespace _Project.MainCharacter.Scripts
             InputActions.Player.Sprint.canceled += DecreaseCurrentSpeed;
 
             InputActions.Player.Move.performed += MovementPerformed;
-
-            InputActions.Player.ChangeCameraState.performed += ChangeCameraState;
             
             _stamina.OnStaminaChanged += CheckStamina;
         }
@@ -60,8 +59,6 @@ namespace _Project.MainCharacter.Scripts
             
             InputActions.Player.Move.performed -= MovementPerformed;
             
-            InputActions.Player.ChangeCameraState.performed -= ChangeCameraState;
-            
             _stamina.OnStaminaChanged -= CheckStamina;
         }
         
@@ -72,6 +69,8 @@ namespace _Project.MainCharacter.Scripts
         
         private void Update()
         {
+            if (!IsOwner) return;
+            
             if (!CanMove)
             {
                 animController.UpdateSpeed(0f);
@@ -83,6 +82,8 @@ namespace _Project.MainCharacter.Scripts
 
         private void FixedUpdate()
         {
+            if (!IsOwner) return;
+            
             if (!CanMove)
                 return;
             
@@ -96,6 +97,14 @@ namespace _Project.MainCharacter.Scripts
             }
             
             rb.linearVelocity = InputActions.Player.Move.ReadValue<Vector2>() * CurrentSpeed;
+            
+            UpdatePositionServerRpc(transform.position);
+        }
+        
+        [ServerRpc]
+        private void UpdatePositionServerRpc(Vector2 position)
+        {
+            transform.position = position;
         }
 
         private void UpdateAnimation()
@@ -114,26 +123,6 @@ namespace _Project.MainCharacter.Scripts
             {
                 DecreaseCurrentSpeed();
             }
-        }
-
-        private void ChangeCameraState(InputAction.CallbackContext context)
-        {
-            if (!_canChangeCameraState)
-                return;
-            
-            CanMove = !CanMove;
-
-            if (!CanMove)
-            {
-                LockRunning();
-                rb.linearVelocity = Vector2.zero;
-            }
-            else
-            {
-                UnlockRunning();
-            }
-            
-            OnCameraStateChanged?.Invoke();
         }
         
         public void LockCameraStateChanging()

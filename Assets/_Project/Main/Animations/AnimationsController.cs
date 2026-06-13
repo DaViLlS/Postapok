@@ -6,12 +6,10 @@ namespace _Project.Main.Animations
     public class AnimationsController : MonoBehaviour
     {
         [SerializeField] protected Animator animator;
-        [SerializeField] private GameObject shadowObject;
         
         private string _currentTrigger;
         
         public Animator Animator => animator;
-        public GameObject ShadowObject => shadowObject;
         
         public void TriggerAnimation(string trigger)
         {

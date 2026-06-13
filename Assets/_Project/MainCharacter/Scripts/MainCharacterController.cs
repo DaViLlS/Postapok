@@ -1,19 +1,20 @@
 using System;
 using _Project.CameraControlling;
 using _Project.Main.Animations;
+using _Project.Main.UiBase;
 using _Project.MainCharacter.Scripts.Leveling;
 using _Project.Stats;
 using _Project.Tutorial.ShortTutorial.Scripts;
 using _Project.WorldClicking.Scripts;
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Zenject;
 
 namespace _Project.MainCharacter.Scripts
 {
-    public class MainCharacterController : MonoBehaviour, IDefendable, IAttackable
+    public class MainCharacterController : NetworkBehaviour, IDefendable, IAttackable
     {
-        [Inject] private ParametersConfig _parametersConfig;
         [Inject] private MainCharacterData _mainCharacterData;
         
         public event Action<IAttackable> OnVisibled;
@@ -23,14 +24,15 @@ namespace _Project.MainCharacter.Scripts
         
         [SerializeField] private AnimationsController animationsController;
         [SerializeField] private Movement movement;
+        [SerializeField] private Camera mainCamera;
+        [SerializeField] private UiInitializer uiInitializer;
         [SerializeField] private CameraController cameraController;
-        [FormerlySerializedAs("undeadSquadsController")] [SerializeField] private WorldClickingController worldClickingController;
+        [SerializeField] private WorldClickingController worldClickingController;
         [SerializeField] private ShortGameTypeTutorial shortGameTypeTutorial;
         [Space] 
         [SerializeField] private float healthRegenDelay;
         [SerializeField] private float healthRegenRate;
-        [SerializeField] private float diseaseRegenDelay;
-        [SerializeField] private float diseaseRegenRate;
+        [SerializeField] private ParametersConfig parametersConfig;
         [Space]
         [SerializeField] protected Vector2 positionOffset;
         [Header("Colliders and rigidbody")] 
@@ -56,8 +58,8 @@ namespace _Project.MainCharacter.Scripts
         {
             SpriteRenderer = GetComponent<SpriteRenderer>();
 
-            var maxHealth = _parametersConfig.healthConfig.GetHealthForLevel(_mainCharacterData.CurrentHealthLevel);
-            var maxStamina = _parametersConfig.staminaConfig.GetStaminaForLevel(_mainCharacterData.CurrentStaminaLevel);
+            var maxHealth = parametersConfig.healthConfig.GetHealthForLevel(1/*_mainCharacterData.CurrentHealthLevel*/);
+            var maxStamina = parametersConfig.staminaConfig.GetStaminaForLevel(1/*_mainCharacterData.CurrentStaminaLevel*/);
             
             Health = new Health(maxHealth);
             Health.OnZeroHealth += OnZeroHealth;
@@ -68,7 +70,6 @@ namespace _Project.MainCharacter.Scripts
             InputActions.Enable();
             
             movement.Initialize(InputActions, Stamina);
-            worldClickingController.Initialize();
         }
 
         private void Start()
@@ -76,8 +77,10 @@ namespace _Project.MainCharacter.Scripts
             
         }
 
-        private void OnDestroy()
+        public override void OnDestroy()
         {
+            base.OnDestroy();
+            
             InputActions.Disable();
             Health.OnZeroHealth -= OnZeroHealth;
         }
@@ -137,8 +140,8 @@ namespace _Project.MainCharacter.Scripts
         {
             transform.position = Vector2.zero;
             
-            var maxHealth = _parametersConfig.healthConfig.GetHealthForLevel(_mainCharacterData.CurrentHealthLevel);
-            var maxStamina = _parametersConfig.staminaConfig.GetStaminaForLevel(_mainCharacterData.CurrentStaminaLevel);
+            var maxHealth = parametersConfig.healthConfig.GetHealthForLevel(_mainCharacterData.CurrentHealthLevel);
+            var maxStamina = parametersConfig.staminaConfig.GetStaminaForLevel(_mainCharacterData.CurrentStaminaLevel);
             
             Health.OnZeroHealth -= OnZeroHealth;
             Health = new Health(maxHealth);
@@ -172,11 +175,6 @@ namespace _Project.MainCharacter.Scripts
             {
                 Health.Heal(healthRegenRate * Time.deltaTime);
             }
-
-            if (CanHealDisease())
-            {
-                Health.HealDisease(diseaseRegenRate * Time.deltaTime);
-            }
         }
 
         private bool CanRegenerateHealth()
@@ -184,11 +182,25 @@ namespace _Project.MainCharacter.Scripts
             return Time.time - Health.LastHealthDecTime >= healthRegenDelay &&
                    Health.CurrentHealth < Health.MaxHealth - Health.CurrentDiseaseLevel;
         }
-
-        private bool CanHealDisease()
+        
+        public override void OnNetworkSpawn()
         {
-            return Time.time - Health.LastDiseaseTime >= diseaseRegenDelay &&
-                   Health.CurrentDiseaseLevel > 0;
+            base.OnNetworkSpawn();
+            
+            if (IsOwner)
+            {
+                uiInitializer.Initialize();
+                
+                // Настройка камеры
+                if (mainCamera != null)
+                {
+                    mainCamera.transform.position = new Vector3(
+                        transform.position.x,
+                        transform.position.y,
+                        mainCamera.transform.position.z
+                    );
+                }
+            }
         }
     }
 }

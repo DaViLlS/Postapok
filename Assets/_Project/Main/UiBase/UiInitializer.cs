@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using DG.Tweening;
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,12 +12,12 @@ namespace _Project.Main.UiBase
         [SerializeField] private List<GameScreen> gameScreens = new List<GameScreen>();
         [SerializeField] private List<GamePopup> gamePopups = new List<GamePopup>();
 
-        private void Start()
+        public void Initialize()
         {
-            darkImage.DOFade(0f, 2f).OnComplete(Initialize);
+            darkImage.DOFade(0f, 2f).OnComplete(InitializeWindows);
         }
 
-        private void Initialize()
+        private void InitializeWindows()
         {
             darkImage.gameObject.SetActive(false);
             

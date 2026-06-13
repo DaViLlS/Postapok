@@ -19,6 +19,8 @@ namespace _Project.MainCharacter.Scripts.UI
 
         private void Start()
         {
+            return;
+            
             var nextExperience = _parametersConfig.GetExperienceForLevel(_mainCharacterData.CurrentLevel + 1);
             
             if (_mainCharacterData.CurrentLevel >= _parametersConfig.maxLevel)
@@ -38,6 +40,8 @@ namespace _Project.MainCharacter.Scripts.UI
 
         private void OnDestroy()
         {
+            return;
+            
             _levelController.OnLevelIncreased -= IncreaseLevel;
             _levelController.OnExperienceAdded -= ChangeExperience;
         }

@@ -11,11 +11,16 @@ namespace _Project.Main.GameManagement.UI
 
         private void Awake()
         {
-            gameLevelController.OnLevelTaskChanged += UpdateTaskText;
+            if (gameLevelController != null)
+                gameLevelController.OnLevelTaskChanged += UpdateTaskText;
         }
 
         private void Start()
         {
+            if (gameLevelController == null)
+                return;
+                
+            
             if (gameLevelController.GetLevelTaskText() == string.Empty)
             {
                 gameLevelController.OnLevelTaskChanged -= UpdateTaskText;
@@ -29,12 +34,13 @@ namespace _Project.Main.GameManagement.UI
 
         private void OnDestroy()
         {
-            gameLevelController.OnLevelTaskChanged -= UpdateTaskText;
+            if (gameLevelController != null)
+                gameLevelController.OnLevelTaskChanged -= UpdateTaskText;
         }
 
         private void UpdateTaskText()
         {
-            currentTask.text = gameLevelController.GetLevelTaskText();
+            currentTask.text = gameLevelController?.GetLevelTaskText();
         }
     }
 }

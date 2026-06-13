@@ -14,6 +14,9 @@ namespace _Project.Localization
 
         private void Start()
         {
+            if (_localizationController == null)
+                return;
+            
             _localizationController.OnLanguageChanged += ChangeLanguage;
 
             ChangeLanguage();
@@ -21,6 +24,9 @@ namespace _Project.Localization
 
         private void OnDestroy()
         {
+            if (_localizationController == null)
+                return;
+            
             _localizationController.OnLanguageChanged -= ChangeLanguage;
         }
 
