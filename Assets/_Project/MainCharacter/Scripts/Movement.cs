@@ -52,7 +52,7 @@ namespace _Project.MainCharacter.Scripts
             _stamina.OnStaminaChanged += CheckStamina;
         }
 
-        private void OnDestroy()
+        public override void OnDestroy()
         {
             InputActions.Player.Sprint.performed -= IncreaseCurrentSpeed;
             InputActions.Player.Sprint.canceled -= DecreaseCurrentSpeed;
@@ -60,6 +60,8 @@ namespace _Project.MainCharacter.Scripts
             InputActions.Player.Move.performed -= MovementPerformed;
             
             _stamina.OnStaminaChanged -= CheckStamina;
+            
+            base.OnDestroy();
         }
         
         private void MovementPerformed(InputAction.CallbackContext context)
@@ -69,7 +71,8 @@ namespace _Project.MainCharacter.Scripts
         
         private void Update()
         {
-            if (!IsOwner) return;
+            if (!IsOwner)
+                return;
             
             if (!CanMove)
             {
@@ -82,7 +85,8 @@ namespace _Project.MainCharacter.Scripts
 
         private void FixedUpdate()
         {
-            if (!IsOwner) return;
+            if (!IsOwner)
+                return;
             
             if (!CanMove)
                 return;

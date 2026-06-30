@@ -29,31 +29,17 @@ namespace _Project.ValuePanel.Scripts
                 value.text = _mainCharacterData.SoftValue.ToString();
                 _mainCharacterData.OnSoftValueChanged += UpdateSoftValueChanged;
             }
-
-            if (valueType == ValueType.HardValue)
-            {
-                value.text = _mainCharacterData.HardValue.ToString();
-                _mainCharacterData.OnHardValueChanged += UpdateHardValueChanged;
-            }
         }
 
         private void OnDestroy()
         {
             if (valueType == ValueType.SoftValue)
                 _mainCharacterData.OnSoftValueChanged -= UpdateSoftValueChanged;
-            
-            if (valueType == ValueType.HardValue)
-                _mainCharacterData.OnHardValueChanged -= UpdateHardValueChanged;
         }
 
         private void UpdateSoftValueChanged()
         {
             value.text = _mainCharacterData.SoftValue.ToString();
-        }
-        
-        private void UpdateHardValueChanged()
-        {
-            value.text = _mainCharacterData.HardValue.ToString();
         }
     }
 }

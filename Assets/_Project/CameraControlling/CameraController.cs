@@ -1,15 +1,18 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using DG.Tweening;
 using Unity.Cinemachine;
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
 namespace _Project.CameraControlling
 {
-    public class CameraController : MonoBehaviour
+    public class CameraController : NetworkBehaviour
     {
-        [SerializeField] private CinemachineCamera mainCamera;
+        [SerializeField] private Camera mainCamera;
+        [SerializeField] private CinemachineCamera virtualCamera;
         [SerializeField] private CinemachineFollow cinemachineFollow;
         [SerializeField] private Transform trackingTarget;
         [SerializeField] private float cameraSpeed;
@@ -25,10 +28,17 @@ namespace _Project.CameraControlling
 
         private Tween _tween;
 
-        private void Awake()
+        public override void OnNetworkSpawn()
         {
+            if (!IsLocalPlayer)
+            {
+                Destroy(mainCamera.gameObject);
+                Destroy(virtualCamera.gameObject);
+                return;
+            }
+            
             _globalVolume = FindAnyObjectByType<Volume>();
-            mainCamera.Follow = trackingTarget;
+            virtualCamera.Follow = trackingTarget;
 
             if (_globalVolume.profile.TryGet<ChromaticAberration>(out var aberration))
             {
@@ -36,9 +46,12 @@ namespace _Project.CameraControlling
                 _aberration.intensity.value = 0f;
             }
         }
-        
+
         private void Update()
         {
+            if (!IsOwner)
+                return;
+            
             HandleZoom();
         }
         
@@ -48,16 +61,16 @@ namespace _Project.CameraControlling
             
             if (scroll != 0)
             {
-                var newSize = mainCamera.Lens.OrthographicSize - scroll * zoomSpeed;
-                mainCamera.Lens.OrthographicSize = Mathf.Clamp(newSize, minZoom, maxZoom);
+                var newSize = virtualCamera.Lens.OrthographicSize - scroll * zoomSpeed;
+                virtualCamera.Lens.OrthographicSize = Mathf.Clamp(newSize, minZoom, maxZoom);
             }
         }
 
         private void EnableFreeCameraEffects()
         {
             StartCoroutine(SmoothChangeFloat(
-                () => _aberration.intensity.value,           // getter
-                value => _aberration.intensity.value = value, // setter
+                () => _aberration.intensity.value,
+                value => _aberration.intensity.value = value,
                 0.5f,
                 0.5f
             ));
@@ -66,34 +79,29 @@ namespace _Project.CameraControlling
         private void DisableFreeCameraEffects()
         {
             StartCoroutine(SmoothChangeFloat(
-                () => _aberration.intensity.value,           // getter
-                value => _aberration.intensity.value = value, // setter
+                () => _aberration.intensity.value,           
+                value => _aberration.intensity.value = value, 
                 0f,
                 0.5f
             ));
         }
         
-        private IEnumerator SmoothChangeFloat(System.Func<float> getter, 
-            System.Action<float> setter, 
-            float target, 
-            float duration)
+        private IEnumerator SmoothChangeFloat(System.Func<float> getter, Action<float> setter, float target, float duration)
         {
-            float startValue = getter();
-            float elapsedTime = 0;
+            var startValue = getter();
+            var elapsedTime = 0f;
         
             while (elapsedTime < duration)
             {
                 elapsedTime += Time.deltaTime;
-                float t = elapsedTime / duration;
+                var t = elapsedTime / duration;
             
-                // Плавная интерполяция
-                float currentValue = Mathf.Lerp(startValue, target, t);
+                var currentValue = Mathf.Lerp(startValue, target, t);
                 setter(currentValue);
             
                 yield return null;
             }
         
-            // Убеждаемся, что достигли точного целевого значения
             setter(target);
         }
     }

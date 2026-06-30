@@ -8,7 +8,6 @@ using _Project.Tutorial.ShortTutorial.Scripts;
 using _Project.WorldClicking.Scripts;
 using Unity.Netcode;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Zenject;
 
 namespace _Project.MainCharacter.Scripts
@@ -46,6 +45,7 @@ namespace _Project.MainCharacter.Scripts
         public PlayerInputActions InputActions { get; private set; }
         public Health Health { get; private set; }
         public Stamina Stamina { get; private set; }
+        public bool Initialized { get; private set; }
         
         public Movement Movement => movement;
         public AnimationsController AnimationsController => animationsController;
@@ -53,28 +53,34 @@ namespace _Project.MainCharacter.Scripts
         public Collider2D TriggerCollider => triggerCollider;
         public Rigidbody2D Rb => rb;
         public ShortGameTypeTutorial ShortGameTypeTutorial => shortGameTypeTutorial;
-
-        private void Awake()
+        
+        public override void OnNetworkSpawn()
         {
-            SpriteRenderer = GetComponent<SpriteRenderer>();
+            base.OnNetworkSpawn();
+            
+            if (IsOwner)
+            {
+                SpriteRenderer = GetComponent<SpriteRenderer>();
 
-            var maxHealth = parametersConfig.healthConfig.GetHealthForLevel(1/*_mainCharacterData.CurrentHealthLevel*/);
-            var maxStamina = parametersConfig.staminaConfig.GetStaminaForLevel(1/*_mainCharacterData.CurrentStaminaLevel*/);
+                var maxHealth = parametersConfig.healthConfig.GetHealthForLevel(1/*_mainCharacterData.CurrentHealthLevel*/);
+                var maxStamina = parametersConfig.staminaConfig.GetStaminaForLevel(1/*_mainCharacterData.CurrentStaminaLevel*/);
             
-            Health = new Health(maxHealth);
-            Health.OnZeroHealth += OnZeroHealth;
+                Health = new Health(maxHealth);
+                Health.OnZeroHealth += OnZeroHealth;
             
-            Stamina = new Stamina(maxStamina);
+                Stamina = new Stamina(maxStamina);
             
-            InputActions = new PlayerInputActions();
-            InputActions.Enable();
+                if (!IsOwner)
+                    return;
             
-            movement.Initialize(InputActions, Stamina);
-        }
-
-        private void Start()
-        {
+                InputActions = new PlayerInputActions();
+                InputActions.Enable();
             
+                movement.Initialize(InputActions, Stamina);
+                uiInitializer.Initialize();
+                
+                Initialized = true;
+            }
         }
 
         public override void OnDestroy()
@@ -171,6 +177,12 @@ namespace _Project.MainCharacter.Scripts
 
         private void FixedUpdate()
         {
+            if (!Initialized)
+                return;
+            
+            if (!IsOwner)
+                return;
+            
             if (CanRegenerateHealth())
             {
                 Health.Heal(healthRegenRate * Time.deltaTime);
@@ -181,26 +193,6 @@ namespace _Project.MainCharacter.Scripts
         {
             return Time.time - Health.LastHealthDecTime >= healthRegenDelay &&
                    Health.CurrentHealth < Health.MaxHealth - Health.CurrentDiseaseLevel;
-        }
-        
-        public override void OnNetworkSpawn()
-        {
-            base.OnNetworkSpawn();
-            
-            if (IsOwner)
-            {
-                uiInitializer.Initialize();
-                
-                // Настройка камеры
-                if (mainCamera != null)
-                {
-                    mainCamera.transform.position = new Vector3(
-                        transform.position.x,
-                        transform.position.y,
-                        mainCamera.transform.position.z
-                    );
-                }
-            }
         }
     }
 }

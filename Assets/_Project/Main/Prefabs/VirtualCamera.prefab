@@ -108,11 +108,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1359038bac34b479d6616d972f332d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movement: {fileID: 0}
-  mainCamera: {fileID: 5419679118565664170}
+  ShowTopMostFoldoutHeaderGroup: 1
+  mainCamera: {fileID: 0}
+  virtualCamera: {fileID: 5419679118565664170}
   cinemachineFollow: {fileID: 4689363154108863500}
   trackingTarget: {fileID: 0}
-  globalVolume: {fileID: 0}
   cameraSpeed: 10
   zoomSpeed: 10
   minZoom: 10

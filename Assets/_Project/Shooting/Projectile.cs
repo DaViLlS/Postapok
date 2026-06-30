@@ -45,7 +45,8 @@ namespace _Project.Shooting
         
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (!IsServer) return;
+            if (!IsServer)
+                return;
             
             // Проверяем, что не попали в себя
             NetworkObject hitNetworkObject = other.GetComponent<NetworkObject>();
@@ -53,11 +54,12 @@ namespace _Project.Shooting
                 return;
             
             // Наносим урон
-            HealthSystem.HealthSystem health = other.GetComponent<HealthSystem.HealthSystem>();
+            /*HealthSystem.HealthSystem health = other.GetComponent<HealthSystem.HealthSystem>();
+            
             if (health != null)
             {
                 health.TakeDamageServerRpc(damage);
-            }
+            }*/
             
             // Эффект попадания
             SpawnHitEffectClientRpc(transform.position);

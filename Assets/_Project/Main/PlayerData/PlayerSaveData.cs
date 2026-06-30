@@ -12,9 +12,7 @@ namespace _Project.Main.PlayerData
         public ulong currentLevel;
         public ulong currentHealthLevel;
         public ulong currentStaminaLevel;
-        public ulong currentManaLevel;
         public ulong softValue;
-        public ulong hardValue;
         public DateTime lastSessionTime;
 
         public void Setup(MainCharacterData mainCharacterData)
@@ -26,7 +24,6 @@ namespace _Project.Main.PlayerData
             currentHealthLevel = mainCharacterData.CurrentHealthLevel;
             currentStaminaLevel = mainCharacterData.CurrentStaminaLevel;
             softValue = mainCharacterData.SoftValue;
-            hardValue = mainCharacterData.HardValue;
             lastSessionTime = DateTime.Now;
         }
     }

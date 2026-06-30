@@ -7,7 +7,6 @@ namespace _Project.MainCharacter.Scripts
     public class MainCharacterData
     {
         public event Action OnSoftValueChanged;
-        public event Action OnHardValueChanged;
         
         public bool HasPet { get; private set; }
         public ulong LevelPoints { get; private set; }
@@ -16,7 +15,6 @@ namespace _Project.MainCharacter.Scripts
         public ulong CurrentHealthLevel { get; private set; }
         public ulong CurrentStaminaLevel { get; private set; }
         public ulong SoftValue { get; private set; }
-        public ulong HardValue { get; private set; }
         public DateTime LastSessionTime { get; private set; }
 
         public void Initialize()
@@ -28,7 +26,6 @@ namespace _Project.MainCharacter.Scripts
             CurrentHealthLevel = 1;
             CurrentStaminaLevel = 1;
             SoftValue = 0;
-            HardValue = 0;
         }
 
         public void Load(PlayerSaveData data)
@@ -40,7 +37,6 @@ namespace _Project.MainCharacter.Scripts
             CurrentHealthLevel = data.currentHealthLevel;
             CurrentStaminaLevel = data.currentStaminaLevel;
             SoftValue = data.softValue;
-            HardValue = data.hardValue;
             LastSessionTime = data.lastSessionTime;
         }
 
@@ -94,18 +90,6 @@ namespace _Project.MainCharacter.Scripts
         {
             SoftValue -= softValue;
             OnSoftValueChanged?.Invoke();
-        }
-        
-        public void AddHardValue(ulong hardValue)
-        {
-            HardValue += hardValue;
-            OnHardValueChanged?.Invoke();
-        }
-
-        public void RemoveHardValue(ulong hardValue)
-        {
-            HardValue -= hardValue;
-            OnHardValueChanged?.Invoke();
         }
 
         public bool TryRemoveSoftValue(ulong softValue)

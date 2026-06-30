@@ -16,9 +16,6 @@ namespace _Project.Rewards
                 case RewardType.SoftMoney:
                     _mainCharacterData.AddSoftValue(rewardAmount);
                     break;
-                case RewardType.HardMoney:
-                    _mainCharacterData.AddHardValue(rewardAmount);
-                    break;
                 case RewardType.CharacterExperience:
                     _levelController.AddExperience(rewardAmount);
                     break;

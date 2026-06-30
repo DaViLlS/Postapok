@@ -110,15 +110,6 @@ namespace _Project.TasksAndDialogues.Tasks.Scripts.UI
             }
         }
 
-        public void ResetDailyTasks()
-        {
-            if (_mainCharacterData.HardValue >= resetCount)
-            {
-                _tasksController.ResetQuests();
-                _mainCharacterData.RemoveHardValue(resetCount);
-            }
-        }
-
         private void SetupMainPlotTasksView()
         {
             foreach (var task in _tasksController.CurrentMainPlotTasks)
