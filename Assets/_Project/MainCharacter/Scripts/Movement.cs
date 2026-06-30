@@ -14,7 +14,7 @@ namespace _Project.MainCharacter.Scripts
         public event Action OnSprintPerformed;
 
         [SerializeField] private AnimationsController animController;
-        [SerializeField] private Rigidbody2D rb;
+        [SerializeField] private Rigidbody rb;
         [SerializeField] private float speed;
         [SerializeField] private float runSpeed;
         [SerializeField] private float staminaDrainRate;
@@ -91,7 +91,7 @@ namespace _Project.MainCharacter.Scripts
             if (!CanMove)
                 return;
             
-            if (_isRunning && InputActions.Player.Move.ReadValue<Vector2>() != Vector2.zero)
+            if (_isRunning && InputActions.Player.Move.ReadValue<Vector3>() != Vector3.zero)
             {
                 _stamina.DecreaseStamina(staminaDrainRate * Time.deltaTime);
             }
@@ -99,25 +99,26 @@ namespace _Project.MainCharacter.Scripts
             {
                 _stamina.IncreaseStamina(staminaRegenRate * Time.deltaTime);
             }
-            
-            rb.linearVelocity = InputActions.Player.Move.ReadValue<Vector2>() * CurrentSpeed;
+
+            var input = InputActions.Player.Move.ReadValue<Vector3>();
+            rb.linearVelocity = new Vector3(input.x * CurrentSpeed, rb.linearVelocity.y, input.y * CurrentSpeed);
             
             UpdatePositionServerRpc(transform.position);
         }
         
         [ServerRpc]
-        private void UpdatePositionServerRpc(Vector2 position)
+        private void UpdatePositionServerRpc(Vector3 position)
         {
             transform.position = position;
         }
 
         private void UpdateAnimation()
         {
-            animController.UpdateSpeed(InputActions.Player.Move.ReadValue<Vector2>().normalized.magnitude);
+            animController.UpdateSpeed(InputActions.Player.Move.ReadValue<Vector3>().normalized.magnitude);
             
-            if (InputActions.Player.Move.ReadValue<Vector2>().x != 0f)
+            if (InputActions.Player.Move.ReadValue<Vector3>().x != 0f)
             {
-                animController.UpdateDirection(InputActions.Player.Move.ReadValue<Vector2>().x);
+                animController.UpdateDirection(InputActions.Player.Move.ReadValue<Vector3>().x);
             }
         }
 
@@ -150,7 +151,7 @@ namespace _Project.MainCharacter.Scripts
         {
             _movementLockersCount++;
             CanMove = false;
-            rb.linearVelocity = Vector2.zero;
+            rb.linearVelocity = Vector3.zero;
         }
 
         public void UnlockMovement()

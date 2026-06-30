@@ -10,7 +10,7 @@
                     "name": "Move",
                     "type": "Value",
                     "id": "93025963-1775-4eb1-a6f6-77f4df178c88",
-                    "expectedControlType": "Vector2",
+                    "expectedControlType": "Vector3",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -92,7 +92,7 @@
                 {
                     "name": "WASD",
                     "id": "cee1332d-15f3-48a0-857b-4aae11119c1c",
-                    "path": "2DVector",
+                    "path": "3DVector",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -101,7 +101,7 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "up",
+                    "name": "Up",
                     "id": "85c1d044-5da6-42d4-8c36-55961cc14bc3",
                     "path": "<Keyboard>/w",
                     "interactions": "",
@@ -112,7 +112,7 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "down",
+                    "name": "Down",
                     "id": "cd6109e8-6998-4177-97e8-0dd5acc20dad",
                     "path": "<Keyboard>/s",
                     "interactions": "",
@@ -123,7 +123,7 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "left",
+                    "name": "Left",
                     "id": "eb5590f7-7f8f-453c-ab80-6554049f3cf4",
                     "path": "<Keyboard>/a",
                     "interactions": "",
@@ -134,12 +134,12 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "right",
-                    "id": "93e804ca-e1f9-49f2-b245-b17eab285660",
+                    "name": "Right",
+                    "id": "f02c83a9-62e2-4fc0-93ac-ebffe1a83f70",
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";KeyboardAndMouse",
+                    "groups": "",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -229,94 +229,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "PotionsBar",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                }
-            ]
-        },
-        {
-            "name": "Spells",
-            "id": "5e92cecb-ec3f-4d26-9f9b-1f8dd4aeec39",
-            "actions": [
-                {
-                    "name": "FirstSpell",
-                    "type": "Button",
-                    "id": "508645d0-f4e4-41f5-bd9b-738774590430",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "SecondSpell",
-                    "type": "Button",
-                    "id": "e1ac75d8-0336-4514-b8f7-b67731e64d37",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "ThirdSpell",
-                    "type": "Button",
-                    "id": "6025d39f-e9db-4567-bf48-604f71a08618",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "FourthSpell",
-                    "type": "Button",
-                    "id": "4cf0e431-b808-4de9-b6f1-e88c688eaf00",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                }
-            ],
-            "bindings": [
-                {
-                    "name": "",
-                    "id": "ab06cfb7-f3be-465e-9c7b-11f5c43ff1c1",
-                    "path": "<Keyboard>/e",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "SecondSpell",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "073dfcf9-2ada-49ea-baef-e17de2bfd841",
-                    "path": "<Keyboard>/q",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "FirstSpell",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "6f567df6-c8d5-4b51-a10a-6fb7885d140f",
-                    "path": "<Keyboard>/r",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "ThirdSpell",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "08fa5e99-a76a-4f65-b560-a0ecfe6b902d",
-                    "path": "<Keyboard>/f",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "FourthSpell",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
