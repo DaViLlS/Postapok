@@ -20,23 +20,20 @@ namespace _Project.Core.Scripts
         public event Action OnGameStarted;
         public event Action OnDisconnected;
         
-        private string joinCode;
-        private bool isHost;
+        private string _joinCode;
+        private bool _isHost;
         
         private void Awake()
         {
-            // Не уничтожаем при загрузке сцен
             DontDestroyOnLoad(gameObject);
         }
         
         private async void Start()
         {
-            // Подписка на события NetworkManager
             NetworkManager.Singleton.OnClientConnectedCallback += OnClientConnected;
             NetworkManager.Singleton.OnClientDisconnectCallback += OnClientDisconnected;
             NetworkManager.Singleton.OnServerStarted += OnServerStarted;
             
-            // Инициализация сервисов
             await InitializeServices();
         }
         
@@ -67,10 +64,10 @@ namespace _Project.Core.Scripts
             try
             {
                 SetStatus("Creating session...");
-                isHost = true;
+                _isHost = true;
                 
                 var allocation = await RelayService.Instance.CreateAllocationAsync(3);
-                joinCode = await RelayService.Instance.GetJoinCodeAsync(allocation.AllocationId);
+                _joinCode = await RelayService.Instance.GetJoinCodeAsync(allocation.AllocationId);
                 
                 var relayData = new RelayServerData(allocation, "dtls");
                 var transport = NetworkManager.Singleton.GetComponent<UnityTransport>();
@@ -78,7 +75,7 @@ namespace _Project.Core.Scripts
                 
                 NetworkManager.Singleton.StartHost();
                 
-                OnLobbyCreated?.Invoke(joinCode);
+                OnLobbyCreated?.Invoke(_joinCode);
                 SetStatus("Host created!");
             }
             catch (Exception e)
@@ -99,7 +96,7 @@ namespace _Project.Core.Scripts
             try
             {
                 SetStatus("Joining...");
-                isHost = false;
+                _isHost = false;
                 
                 var allocation = await RelayService.Instance.JoinAllocationAsync(code);
                 var relayData = new RelayServerData(allocation, "dtls");
@@ -108,7 +105,7 @@ namespace _Project.Core.Scripts
                 transport.SetRelayServerData(relayData);
                 
                 NetworkManager.Singleton.StartClient();
-                joinCode = code;
+                _joinCode = code;
                 
                 OnLobbyCreated?.Invoke(code);
                 SetStatus("Connected!");
@@ -122,14 +119,12 @@ namespace _Project.Core.Scripts
         
         public void StartGame()
         {
-            if (!isHost) return;
+            if (!_isHost)
+                return;
             
             OnGameStarted?.Invoke();
             
-            NetworkManager.Singleton.SceneManager.LoadScene(
-                "Game",
-                UnityEngine.SceneManagement.LoadSceneMode.Single
-            );
+            NetworkManager.Singleton.SceneManager.LoadScene("Game", UnityEngine.SceneManagement.LoadSceneMode.Single);
         }
         
         public async Task LeaveSession()
@@ -156,12 +151,12 @@ namespace _Project.Core.Scripts
         
         public bool IsHost()
         {
-            return isHost;
+            return _isHost;
         }
         
         public string GetJoinCode()
         {
-            return joinCode;
+            return _joinCode;
         }
         
         private void OnServerStarted()
@@ -186,7 +181,8 @@ namespace _Project.Core.Scripts
         
         private void OnClientDisconnected(ulong clientId)
         {
-            int count = NetworkManager.Singleton.ConnectedClients.Count;
+            var count = NetworkManager.Singleton.ConnectedClients.Count;
+            
             OnPlayersCountChanged?.Invoke(count);
             
             if (clientId == NetworkManager.Singleton.LocalClientId)
